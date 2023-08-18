@@ -1,6 +1,6 @@
 # cython-numpy
 
-[stackoverflow question](https://stackoverflow.com/questions/18462785/what-is-the-recommended-way-of-allocating-memory-for-a-typed-memory-view)
+The associated youtube video is [here](https://youtu.be/zMctivubeIg)
 
 ## testing and timing
 
@@ -23,3 +23,4 @@ x =np.random.rand(1000,3)
 
 ## notes
 - make code run correctly first, then add the compiler directives
+- there are discussions on the preferred array allocation method in this [stackoverflow question](https://stackoverflow.com/questions/18462785/what-is-the-recommended-way-of-allocating-memory-for-a-typed-memory-view)
