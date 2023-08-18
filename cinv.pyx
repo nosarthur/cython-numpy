@@ -1,12 +1,13 @@
 # cython: boundscheck=False
 # cython: wraparound=False
+# cython: language_level=3
 
 
 import numpy as np
 from cython.view cimport array as cvarray
 
 
-cpdef double[:, ::1] invert1(double[:, ::1] xyz, double[:] center):
+cpdef double[:, ::1] invert1(double[:, ::1] xyz, double[::1] center):
     """
     Inversion operation on `xyz` with `center` as inversion center.
     :param xyz:    Nx3 coordinate array
@@ -22,13 +23,13 @@ cpdef double[:, ::1] invert1(double[:, ::1] xyz, double[:] center):
     return got
 
 
-cpdef double[:, ::1] invert2(double[:, ::1] xyz, double[:] center):
+cpdef double[:, ::1] invert2(double[:, ::1] xyz, double[::1] center):
     """
     Inversion operation on `xyz` with `center` as inversion center.
 
     :param xyz:    Nx3 coordinate array
     """
-    cdef Py_ssize_t i, n
+    cdef size_t i, n
     n = xyz.shape[0]
     # see https://stackoverflow.com/questions/18462785/what-is-the-recommended-way-of-allocating-memory-for-a-typed-memory-view
     got = cvarray(shape=(n, 3), itemsize=sizeof(double), format="d")
